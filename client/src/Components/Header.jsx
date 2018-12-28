@@ -1,6 +1,9 @@
 import React from 'react';
 import { get } from 'http';
 import axios from 'axios';
+import Login from './Login.jsx';
+import { ButtonToolbar } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 class Header extends React.Component {
   constructor(props) {
@@ -19,24 +22,21 @@ class Header extends React.Component {
         this.setState({
           restaurant: response.data[0],
         });
-        console.log('RESTAURANT', this.state.restaurant);
       });
-    // .catch((error) => {
-    //   console.log(error);
-    // })
+    
    
   }
 
   render() {
     return (
       <div>
-        <div>Hello World!</div>
-        <div>Name = {this.state.restaurant.name}</div>
+        <Login />
+        {/* <div>Name = {this.state.restaurant.name}</div>
         <div>Address = {this.state.restaurant.address}</div>
         <div>Accurate = {this.state.restaurant.accuracy}</div>
         <div>Quality = {this.state.restaurant.quality}</div>
         <div>Stars = {this.state.restaurant.stars}</div>
-        <div>{this.state.restaurant.picture}</div>
+        <div>{this.state.restaurant.picture}</div> */}
       </div>
     );
   }
