@@ -49,14 +49,6 @@ class Login extends React.Component {
               <LoginModal handleSubmit={this.handleSubmit.bind(this)} />
           </Nav>
         </Navbar>
-        // <ButtonToolbar>
-        //   <Button bsSize='large' bsStyle='primary'>GRUBHUB</Button>
-        //   <DropdownButton bsSize='large' title = 'Enter an address' id='1'>
-        //     <MenuItem eventKey="1">Action</MenuItem>
-        //     <MenuItem eventKey="2">Another action</MenuItem>
-        //   </DropdownButton>
-        //   <Button>333333</Button>
-        // </ButtonToolbar>
       )
     } else {
       return (

@@ -76,24 +76,6 @@ class LoginModal extends React.Component {
                 <Button>Connect your Google Account</Button><br></br>
                 <p>Don't have an account? <a href='#'>Create your account</a></p>
               </ButtonGroup>
-            
-            {/* <h4>Tooltips in a modal</h4>
-            <p>
-              there is a{' '}
-              <OverlayTrigger overlay={tooltip}>
-                <a href="#tooltip">tooltip</a>
-              </OverlayTrigger>{' '}
-              here
-            </p>
-
-            <hr />
-
-            <h4>Overflowing text to show scroll behavior</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
-            </p> */}
           </Modal.Body>
         </Modal>
       </span>
