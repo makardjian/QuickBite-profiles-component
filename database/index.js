@@ -14,6 +14,5 @@ let grabRestaurantInfo = (id, callback) => {
 };
 
 module.exports = {
-  db,
   grabRestaurantInfo,
 };
