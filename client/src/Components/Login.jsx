@@ -5,7 +5,7 @@ import { NavDropdown } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
-import {NavItem } from 'react-bootstrap'
+import { NavItem } from 'react-bootstrap'
 
 
 class Login extends React.Component {
@@ -27,7 +27,7 @@ class Login extends React.Component {
   render() {
     if(this.state.username === '') {
       return (
-        <Navbar fixedTop>
+        <Navbar fixedTop id='navbar'>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="">GRUBHUB</a>

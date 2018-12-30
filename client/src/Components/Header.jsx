@@ -1,9 +1,7 @@
 import React from 'react';
-import { get } from 'http';
 import axios from 'axios';
 import Login from './Login.jsx';
-import { ButtonToolbar } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import Profile from './Profile.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -18,19 +16,21 @@ class Header extends React.Component {
     const id = window.location.pathname.substring(13);
     axios.get(`/restaurants/${id}/profile`)
       .then((response) => {
-        console.log(response.data[0]);
         this.setState({
           restaurant: response.data[0],
         });
       });
-    
-   
   }
 
   render() {
+
     return (
       <div>
         <Login />
+        <Profile restaurant={this.state.restaurant} />
+
+        {/* <img width='714' height='400'src={this.state.restaurant.picture} id='img'></img> */}
+        {/* <h1>hi</h1> */}
         {/* <div>Name = {this.state.restaurant.name}</div>
         <div>Address = {this.state.restaurant.address}</div>
         <div>Accurate = {this.state.restaurant.accuracy}</div>
