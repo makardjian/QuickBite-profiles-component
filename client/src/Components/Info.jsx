@@ -39,8 +39,8 @@ class Info extends React.Component {
       <div className={styles.info}>
         <h2>{this.state.restaurant.name}</h2>
         <span>
-          <a>{this.state.restaurant.address} </a>
-          <a> {this.state.restaurant.number}</a>
+          <a href='#'>{this.state.restaurant.address} </a>
+          <a href='#'> {this.state.restaurant.number}</a>
         </span>
         <div>
           <span> <Stars quality={quality} delivery={delivery} accuracy={accuracy} stars={this.state.restaurant.stars}/> </span>

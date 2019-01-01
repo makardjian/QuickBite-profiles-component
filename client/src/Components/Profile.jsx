@@ -5,21 +5,37 @@ import { ButtonGroup } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import styles from './../styles/Profile.css';
 
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+   // bootstrapUtils.addStyle(Button, 'custom');
+    
     return( 
-      <div className={styles.profile}>
+      <div style={styles.profile}>
         <ButtonToolbar id='profile-buttons'>
-            <Button className='circle'>
+        {/* <style type="text/css">
+          {`
+        .btn-custom {
+          float: right;
+          padding-right: 75px;
+        }
+        `}
+        </style> */}
+            <Button bsStyle='custom'className='circle'>
               <span className='glyphicon glyphicon-bookmark'></span>
             </Button>
-            <Button className='circle'>&lt</Button>
+            <Button className='circle'>Share</Button>
         </ButtonToolbar>
         <Info restaurant={this.props.restaurant}/>
+        <div>
+          <a href='#'>Menu </a>
+          <a href='#'>About </a>
+          <a href='#'>Reviews </a>
+        </div>
       </div>
     )
   }
