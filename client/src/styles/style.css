@@ -1,8 +1,8 @@
-#navbar {
+.navbar {
   height: 60px;
 }
 
-#profile {
+.profile {
   padding-top: 70px;
   width: 75%;
   height: 345px;
@@ -10,17 +10,21 @@
   position: relative;
 }
 
-#profile-buttons {
+.profile-buttons {
   float: right;
   padding-right: 75px;
 }
 
-#info {
+.info {
   background-color:white;
   border: 1px solid;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.stars {
+  color: #ffac00;
 }
 .circle {
   border-radius: 50%;

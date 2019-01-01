@@ -2,7 +2,6 @@ import React from 'react';
 import { Popover } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import { OverlayTrigger } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';

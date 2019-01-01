@@ -23,20 +23,10 @@ class Header extends React.Component {
   }
 
   render() {
-
     return (
       <div>
-        <Login />
+        <Login /><br></br><br></br><br></br>
         <Profile restaurant={this.state.restaurant} />
-
-        {/* <img width='714' height='400'src={this.state.restaurant.picture} id='img'></img> */}
-        {/* <h1>hi</h1> */}
-        {/* <div>Name = {this.state.restaurant.name}</div>
-        <div>Address = {this.state.restaurant.address}</div>
-        <div>Accurate = {this.state.restaurant.accuracy}</div>
-        <div>Quality = {this.state.restaurant.quality}</div>
-        <div>Stars = {this.state.restaurant.stars}</div>
-        <div>{this.state.restaurant.picture}</div> */}
       </div>
     );
   }

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import LoginModal from './LoginModal.jsx'
 import { Navbar } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
-import { NavItem } from 'react-bootstrap'
-
+import { NavItem } from 'react-bootstrap';
+import styles from './../styles/Login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Login extends React.Component {
   render() {
     if(this.state.username === '') {
       return (
-        <Navbar fixedTop id='navbar'>
+        <Navbar fixedTop className={styles.navbar}>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="">GRUBHUB</a>
