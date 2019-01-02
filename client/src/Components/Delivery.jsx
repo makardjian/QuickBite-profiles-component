@@ -5,6 +5,7 @@ import {PickupModal} from './DeliveryModal.jsx';
 import {PickupInfo} from './DeliveryModal.jsx'
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap'; 
+import styles from './../styles/Delivery.css.js';
 
 class Delivery extends React.Component {
   constructor(props) {
@@ -37,18 +38,6 @@ class Delivery extends React.Component {
   
 
   render() {
-      const styles = {
-        deliveryButton: {
-          'border': 'none',
-          'paddingRight': '50px',
-          'background': 'none',
-          'paddingTop': '20px',
-          'positioning': 'absolute',
-          'bottom': '0'
-        }
-      }
-
-
       return (
         <span className="modal-container">
           <Button 

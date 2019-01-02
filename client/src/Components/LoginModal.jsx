@@ -7,6 +7,7 @@ import { Tooltip } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { ToggleButton } from 'react-bootstrap';
+import styles from './../styles/LoginModal.css.js';
 
 class LoginModal extends React.Component {
   constructor(props) {
@@ -49,23 +50,11 @@ class LoginModal extends React.Component {
   }
 
   render() {
-    const styles = {
-      loginButton: {
-        'height': '40px',
-        'backgroundColor': 'red',
-        'color': 'white',
-        'paddingLeft': '10px',
-        'paddingRight': '10px',
-        'border': '2px solid white',
-      }
-
-    }
-
     return (
-      <span>
-        <Button style={styles.loginButton} onClick={this.handleShow} >
+      <span style={{'lineHeight': '40px'}}>
+        <button style={styles.loginButton} onClick={this.handleShow} >
           Sign in
-        </Button>
+        </button>
         <Modal show={this.state.show} onHide={this.handleClose} animation>
           <Button onClick={this.handleClose}>X</Button>
           <Modal.Body>
@@ -75,7 +64,7 @@ class LoginModal extends React.Component {
               <FormControl value={this.state.password} type="text" placeholder="Password"/>
             </FormGroup>
               <span>
-                <ToggleButton type='checkbox'> Keep me signed in</ToggleButton>
+                <ToggleButton value='check' type='checkbox'> Keep me signed in</ToggleButton>
                 <a href='#'>Reset password</a>
               </span>
             

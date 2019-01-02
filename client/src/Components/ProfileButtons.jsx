@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonToolbar } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
+import styles from './../styles/ProfileButtons.css.js'
 
 class ProfileButtons extends React.Component {
   constructor(props) {
@@ -13,10 +14,30 @@ class ProfileButtons extends React.Component {
 
   render() {
     return (
-      <ButtonToolbar style={{'paddingRight': '55'}}>
-              <ShareButton name={this.props.name}/>
-              <BookmarkButton />
-      </ButtonToolbar>
+      <div>
+        <ButtonToolbar style={{'paddingRight': '55px'}}>
+                <ShareButton name={this.props.name}/>
+                <BookmarkButton />
+        </ButtonToolbar>
+        <ProfilePic />
+      </div>
+    )
+  }
+}
+
+class ProfilePic extends React.Component {
+  render() {
+    const styles = {
+      profilePic: {
+        'float': 'right',
+        'marginTop': '200px'
+      }
+    }
+
+    return (
+      <div style={styles.profilePic}>
+        <Button>Hello</Button>
+      </div>
     )
   }
 }
@@ -37,18 +58,6 @@ class BookmarkButton extends React.Component {
   }
 
   render() {
-    const styles = {
-      profileButtons: {
-        'float': 'right',
-        'borderRadius': '50%'
-      },
-      highlighted: {
-        'float': 'right',
-        'borderRadius': '50%',
-        'color': '#FAA900'
-      }
-    }
-
     const regularButton = (
       <Button style={styles.profileButtons}>
         <span className='glyphicon glyphicon-bookmark'></span>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormControl } from 'react-bootstrap';
+import styles from './../styles/DeliveryModal.css.js';
 
 export class DeliveryModal extends React.Component {
   constructor(props) {
@@ -49,11 +50,6 @@ export class PickupModal extends React.Component {
   }
 }
 
-const styles = {
-  info: {
-    'lineHeight': '5px'
-  }
-}
 export class DeliveryInfo extends React.Component {
   render() {
     return (

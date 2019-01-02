@@ -2,6 +2,7 @@ import React from 'react';
 import { Popover } from 'react-bootstrap';
 import { OverlayTrigger } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
+import styles from './../styles/Stars.css.js';
 
 class Stars extends React.Component {
   constructor(props) {
@@ -26,12 +27,6 @@ class Stars extends React.Component {
   }
 
   render() {
-    const styles = {
-      stars: {
-        'color': '#FAA900',
-        'fontSize': '20px'
-      }
-    }
     const stars = this.getStars(this.props.stars);
     const popOverBottom = (
       <Popover id='popover-bottom' title="Here's what people are saying:">
@@ -64,7 +59,7 @@ class Stars extends React.Component {
     )
     return (
       <span>
-        <OverlayTrigger trigger='hover' placement='bottom' overlay={popOverBottom} >
+        <OverlayTrigger trigger={['hover','focus']} placement='bottom' overlay={popOverBottom} >
         <span style={styles.stars}>{stars}</span>
         </OverlayTrigger>
       </span>
