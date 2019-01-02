@@ -39,12 +39,16 @@ class Login extends React.Component {
         'backgroundColor': 'red',
         'border': 'none',
         'color': 'white'
+      },
+      loginModal: {
+        'marginTop': '10px'
       }
 
     }
 
     if(this.state.username === '') {
       return (
+        <div>
         <Navbar fixedTop style={styles.navbar}>
           <Navbar.Header>
             <Navbar.Brand>
@@ -63,13 +67,13 @@ class Login extends React.Component {
                 <FormGroup>
                   <FormControl style={styles.placeholder} type="text" placeholder="Pizza, sushi, chinese"/>
                 </FormGroup>
-            </Navbar.Form>
-              <span>
-                <LoginModal handleSubmit={this.handleSubmit.bind(this)} />  
-              </span>
-              
+            </Navbar.Form>  
           </Nav>
+          <view>
+          <LoginModal handleSubmit={this.handleSubmit.bind(this)} style={styles.loginModal}/>  
+        </view>
         </Navbar>
+        </div>
       )
     } else {
       return (

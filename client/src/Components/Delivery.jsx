@@ -1,6 +1,8 @@
 import React from 'react';
 import {DeliveryModal} from './DeliveryModal.jsx';
+import {DeliveryInfo} from './DeliveryModal.jsx';
 import {PickupModal} from './DeliveryModal.jsx';
+import {PickupInfo} from './DeliveryModal.jsx'
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap'; 
 
@@ -32,16 +34,29 @@ class Delivery extends React.Component {
    }
   }
 
+  
+
   render() {
-    // if(this.state.delivery === true) {
+      const styles = {
+        deliveryButton: {
+          'border': 'none',
+          'paddingRight': '50px',
+          'background': 'none',
+          'paddingTop': '20px',
+          'positioning': 'absolute',
+          'bottom': '0'
+        }
+      }
+
+
       return (
         <span className="modal-container">
-          <Button
+          <Button 
             onClick={() => this.setState({ show: true })}
+            style={styles.deliveryButton}
           >
-            Delivery
+            {this.state.delivery ? <DeliveryInfo /> : <PickupInfo />}
           </Button>
-
         <span>
           <a href='#'>Change</a>
         </span>

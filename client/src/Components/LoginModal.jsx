@@ -51,7 +51,7 @@ class LoginModal extends React.Component {
   render() {
     const styles = {
       loginButton: {
-        'height': '40',
+        'height': '40px',
         'backgroundColor': 'red',
         'color': 'white',
         'paddingLeft': '10px',
@@ -63,7 +63,7 @@ class LoginModal extends React.Component {
 
     return (
       <span>
-        <Button style={styles.loginButton} onClick={this.handleShow}>
+        <Button style={styles.loginButton} onClick={this.handleShow} >
           Sign in
         </Button>
         <Modal show={this.state.show} onHide={this.handleClose} animation>

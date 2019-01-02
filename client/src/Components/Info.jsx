@@ -2,7 +2,7 @@ import React from 'react';
 import Stars from './Stars.jsx';
 import axios from 'axios';
 import NavigationButtons from './NavigationButtons.jsx';
-import Delivery from './Delivery.jsx'
+import Delivery from './Delivery.jsx';
 
 class Info extends React.Component {
   constructor(props) {
@@ -38,20 +38,25 @@ class Info extends React.Component {
     }
 
     return (
-      <div style={styles.info}>
-        <h2>{this.state.restaurant.name}</h2>
-        <span>
-          <a href='#'>{this.state.restaurant.address} </a>
-          <a href='#'> {this.state.restaurant.number}</a>
-        </span>
+      <div>
         <div>
-          <span> <Stars quality={quality} delivery={delivery} accuracy={accuracy} stars={this.state.restaurant.stars}/> </span>
-          <span> <strong>{this.state.restaurant.quality}% </strong> Food was good</span>
-          <span> <strong>{this.state.restaurant.delivery}%</strong> Delivery was on time</span>
-          <span> <strong>{this.state.restaurant.accuracy}%</strong> Order was accurate</span>
+          <div style={styles.info}>
+            <h2>{this.state.restaurant.name}</h2>
+            <span>
+              <a href='#'>{this.state.restaurant.address} </a>
+              <a href='#'> {this.state.restaurant.number}</a>
+            </span>
+            <div>
+              <span> <Stars quality={quality} delivery={delivery} accuracy={accuracy} stars={this.state.restaurant.stars}/> </span>
+              <span> <strong>{this.state.restaurant.quality}% </strong> Food was good</span>
+              <span> <strong>{this.state.restaurant.delivery}%</strong> Delivery was on time</span>
+              <span> <strong>{this.state.restaurant.accuracy}%</strong> Order was accurate</span>
+              <br></br><br></br><br></br>
+            </div>
+            <Delivery />
+            <NavigationButtons />
+          </div>
         </div>
-        <NavigationButtons />
-        <Delivery />
       </div>
     )
   }

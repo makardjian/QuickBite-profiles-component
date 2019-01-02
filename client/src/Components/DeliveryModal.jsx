@@ -48,3 +48,30 @@ export class PickupModal extends React.Component {
     )
   }
 }
+
+const styles = {
+  info: {
+    'lineHeight': '5px'
+  }
+}
+export class DeliveryInfo extends React.Component {
+  render() {
+    return (
+      <div style={styles.info}>
+        <p>Delivery, ASAP (10-20m)</p>
+        <p>$15 min, Free delivery</p>
+      </div>
+    )
+  }
+}
+
+export class PickupInfo extends React.Component {
+  render() {
+    return (
+      <div style={styles.info}>
+        <p>Pickup, ASAP (10-20m)</p>
+        <p>No minumum, no fee</p>
+      </div>
+    )
+  }
+}
