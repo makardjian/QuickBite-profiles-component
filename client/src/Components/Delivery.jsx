@@ -14,10 +14,7 @@ class Delivery extends React.Component {
     if (this.state.delivery === true) {
       return(
         <div>
-          <div>
             <DeliveryModal />
-            <a href='#'>Change</a>
-          </div>
         </div>
       )
     } else {

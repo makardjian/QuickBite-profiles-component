@@ -21,13 +21,17 @@ class DeliveryModal extends React.Component {
   render() {
     if(this.state.delivery === true) {
       return (
-        <div className="modal-container" /*style={{ height: 0 }}*/ >
+        <span className="modal-container" /*style={{ height: 0 }}*/ >
           <Button
             onClick={() => this.setState({ show: true })}
           >
             Delivery
           </Button>
-  
+          
+        <span>
+          <a href='#'>Change</a>
+        </span>
+
           <Modal
             show={this.state.show}
             onHide={this.handleHide}
@@ -43,11 +47,11 @@ class DeliveryModal extends React.Component {
               </div>
             </Modal.Body>
           </Modal>
-        </div>
+        </span>
       );
     } else {
       return (
-        <div className="modal-container" /*style={{ height: 0 }}*/ >
+        <span className="modal-container" /*style={{ height: 0 }}*/ >
           <Button
             onClick={() => this.setState({ show: true })}
           >
@@ -68,7 +72,7 @@ class DeliveryModal extends React.Component {
               <Button onClick={this.handleHide}>Cancel</Button>
             </Modal.Body>
           </Modal>
-        </div>
+        </span>
       );
     }
     

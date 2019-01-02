@@ -9,15 +9,29 @@ class Stars extends React.Component {
   }
 
   getStars(stars) {
-    let starsArray = ['☆','☆','☆','☆','☆'];
+    let starsArray = ['☆', ' ', '☆', ' ', '☆', ' ', '☆', ' ', '☆'];
     let full = '★';
-    for (let i = 0; i < stars; i++) {
-      starsArray[i] = full;
+    let count = 0;
+    for (let i = 0; i < (stars*2); i++) {
+      if(count === stars) {
+        break;
+      }
+      if(i % 2 === 0) {
+        starsArray[i] = full;
+        count++;
+      }
     }
+
     return starsArray;
   }
 
   render() {
+    const styles = {
+      stars: {
+        'color': '#FAA900',
+        'fontSize': '20px'
+      }
+    }
     const stars = this.getStars(this.props.stars);
     const popOverBottom = (
       <Popover id='popover-bottom' title="Here's what people are saying:">
@@ -51,7 +65,7 @@ class Stars extends React.Component {
     return (
       <span>
         <OverlayTrigger trigger='hover' placement='bottom' overlay={popOverBottom} >
-        <span>{stars}</span>
+        <span style={styles.stars}>{stars}</span>
         </OverlayTrigger>
       </span>
     )

@@ -25,9 +25,16 @@ class Login extends React.Component {
   }
 
   render() {
+    const styles = {
+      navbar: {
+        'height': '60px',
+        'backgroundColor': 'red',
+      },
+    }
+
     if(this.state.username === '') {
       return (
-        <Navbar fixedTop className={styles.navbar}>
+        <Navbar fixedTop style={styles.navbar}>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="">GRUBHUB</a>
@@ -46,7 +53,10 @@ class Login extends React.Component {
                   <FormControl type="text" placeholder="Pizza, sushi, chinese"/>
                 </FormGroup>
             </Navbar.Form>
-              <LoginModal handleSubmit={this.handleSubmit.bind(this)} />
+              <span>
+                <LoginModal handleSubmit={this.handleSubmit.bind(this)} />  
+              </span>
+              
           </Nav>
         </Navbar>
       )

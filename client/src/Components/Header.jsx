@@ -28,7 +28,6 @@ class Header extends React.Component {
       <div>
         <Login /><br></br><br></br><br></br>  
         <Profile restaurant={this.state.restaurant} />
-        <Delivery />
       </div>
     );
   }

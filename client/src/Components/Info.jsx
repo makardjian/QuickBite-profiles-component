@@ -1,7 +1,8 @@
 import React from 'react';
 import Stars from './Stars.jsx';
 import axios from 'axios';
-import styles from './../styles/Info.css';
+import NavigationButtons from './NavigationButtons.jsx';
+import Delivery from './Delivery.jsx'
 
 class Info extends React.Component {
   constructor(props) {
@@ -35,8 +36,19 @@ class Info extends React.Component {
     const quality = this.state.restaurant.quality;
     const delivery = this.state.restaurant.delivery;
     const accuracy = this.state.restaurant.accuracy;
+    const styles = {
+      info: {
+        'backgroundColor': 'white',
+        'border': '1px solid',
+        'position': 'absolute',
+        'bottom': '0',
+        'width': '100%',
+        'paddingLeft': '70px'
+      }
+    }
+
     return (
-      <div className={styles.info}>
+      <div style={styles.info}>
         <h2>{this.state.restaurant.name}</h2>
         <span>
           <a href='#'>{this.state.restaurant.address} </a>
@@ -44,10 +56,12 @@ class Info extends React.Component {
         </span>
         <div>
           <span> <Stars quality={quality} delivery={delivery} accuracy={accuracy} stars={this.state.restaurant.stars}/> </span>
-          <span> {this.state.restaurant.quality}% Food was good</span>
-          <span> {this.state.restaurant.delivery}% Delivery was on time</span>
-          <span> {this.state.restaurant.accuracy}% Order was accurate</span>
+          <span> <strong>{this.state.restaurant.quality}% </strong> Food was good</span>
+          <span> <strong>{this.state.restaurant.delivery}%</strong> Delivery was on time</span>
+          <span> <strong>{this.state.restaurant.accuracy}%</strong> Order was accurate</span>
         </div>
+        <NavigationButtons />
+        <Delivery />
       </div>
     )
   }
