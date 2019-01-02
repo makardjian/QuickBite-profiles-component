@@ -28,14 +28,14 @@ class Profile extends React.Component {
         'backgroundColor': 'rgba(248, 247, 216, 0.7)',
         'backgroundImage': `url(${this.props.restaurant.picture})`,
         'backgroundRepeat': 'no-repeat',
-        'backgroundSize': '100%'
+        'backgroundSize': '100%',
       },
       
     }
 
     return( 
       <div style={styles.profile}>
-        <ProfileButtons />
+        <ProfileButtons name={this.props.restaurant.name}/>
         <Info restaurant={this.props.restaurant}/>
         
       </div>

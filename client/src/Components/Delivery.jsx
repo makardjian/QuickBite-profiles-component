@@ -10,7 +10,7 @@ class Delivery extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleHide = this.handleHide.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       show: false,
@@ -18,7 +18,7 @@ class Delivery extends React.Component {
     };
   }
 
-  handleHide() {
+  handleClose() {
     this.setState({ show: false });
   }
 
@@ -63,11 +63,11 @@ class Delivery extends React.Component {
 
           <Modal
             show={this.state.show}
-            onHide={this.handleHide}
+            onClose={this.handleClose}
             container={this}
             aria-labelledby="contained-modal-title"
           >
-            <Button onClick={this.handleHide}>X</Button>
+            <Button onClick={this.handleClose}>X</Button>
             <Modal.Body>
               <h3>Your order settings</h3>
               <div>
@@ -78,8 +78,8 @@ class Delivery extends React.Component {
                 {this.state.delivery ? <DeliveryModal /> : <PickupModal />}
               </div>
               <div>
-                <Button onClick={this.handleHide}>Update</Button>
-                <Button onClick={this.handleHide}>Cancel</Button>
+                <Button onClick={this.handleClose}>Update</Button>
+                <Button onClick={this.handleClose}>Cancel</Button>
               </div>
             </Modal.Body>
           </Modal>

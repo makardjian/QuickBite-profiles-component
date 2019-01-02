@@ -26,7 +26,7 @@ class Login extends React.Component {
   render() {
     const styles = {
       navbar: {
-        'height': '60px',
+        'height': '65px',
         'backgroundColor': 'red',
       },
       home: {
@@ -52,7 +52,7 @@ class Login extends React.Component {
         <Navbar fixedTop style={styles.navbar}>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="" style={styles.home}>GRUBHUB</a>
+              <a href="#" style={styles.home}>GRUBHUB</a>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
