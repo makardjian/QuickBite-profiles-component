@@ -1,83 +1,50 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import { Modal } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 
-class DeliveryModal extends React.Component {
+export class DeliveryModal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleHide = this.handleHide.bind(this);
-
     this.state = {
-      show: false,
-      delivery: true
-    };
+      userAddress: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleHide() {
-    this.setState({ show: false });
+  handleChange(e) {
+    this.setState({
+      userAddress: e.target.value
+    })
   }
 
   render() {
-    if(this.state.delivery === true) {
-      return (
-        <span className="modal-container" /*style={{ height: 0 }}*/ >
-          <Button
-            onClick={() => this.setState({ show: true })}
-          >
-            Delivery
-          </Button>
-          
-        <span>
-          <a href='#'>Change</a>
-        </span>
-
-          <Modal
-            show={this.state.show}
-            onHide={this.handleHide}
-            container={this}
-            aria-labelledby="contained-modal-title"
-          >
-            <Modal.Body>
-              Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id
-              ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
-              <div>
-                <Button onClick={this.handleHide}>Update</Button>
-                <Button onClick={this.handleHide}>Cancel</Button>
-              </div>
-            </Modal.Body>
-          </Modal>
-        </span>
-      );
-    } else {
-      return (
-        <span className="modal-container" /*style={{ height: 0 }}*/ >
-          <Button
-            onClick={() => this.setState({ show: true })}
-          >
-            Pickup
-          </Button>
-  
-          <Modal
-            show={this.state.show}
-            onHide={this.handleHide}
-            container={this}
-            aria-labelledby="contained-modal-title"
-          >
-            <Modal.Body>
-              Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id
-              ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
-
-              <Button onClick={this.handleHide}>Update</Button>
-              <Button onClick={this.handleHide}>Cancel</Button>
-            </Modal.Body>
-          </Modal>
-        </span>
-      );
-    }
-    
+    return(
+      <div>
+        <p>Free delivery. $15 minimum</p>
+        <div>
+          <p><strong>When would you like your order?</strong></p>
+          <a href='#'>ASAP (60-70 minutes)</a>
+          <FormControl value={this.state.userAddress} type="text" 
+          placeholder="Enter address" onChange={this.handleChange}></FormControl>
+        </div>
+      </div>
+    )
   }
 }
 
+export class PickupModal extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default DeliveryModal;
+  render() {
+    return (
+      <div>
+        <p>No minimum. No fee</p>
+        <div>
+          <p><strong>When would you like your order?</strong></p>
+          <a href='#'>ASAP (10-20 minutes)</a> 
+        </div>
+      </div>
+    )
+  }
+}

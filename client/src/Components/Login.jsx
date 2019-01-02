@@ -6,7 +6,6 @@ import { Nav } from 'react-bootstrap';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { NavItem } from 'react-bootstrap';
-import styles from './../styles/Login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -30,6 +29,18 @@ class Login extends React.Component {
         'height': '60px',
         'backgroundColor': 'red',
       },
+      home: {
+        'position':'relative',
+        'marginLeft': '-105px',
+        'color': 'white',
+        'fontSize': '20px'
+      },
+      placeholder: {
+        'backgroundColor': 'red',
+        'border': 'none',
+        'color': 'white'
+      }
+
     }
 
     if(this.state.username === '') {
@@ -37,7 +48,7 @@ class Login extends React.Component {
         <Navbar fixedTop style={styles.navbar}>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="">GRUBHUB</a>
+              <a href="" style={styles.home}>GRUBHUB</a>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
@@ -50,7 +61,7 @@ class Login extends React.Component {
             </NavDropdown>
             <Navbar.Form pullLeft>
                 <FormGroup>
-                  <FormControl type="text" placeholder="Pizza, sushi, chinese"/>
+                  <FormControl style={styles.placeholder} type="text" placeholder="Pizza, sushi, chinese"/>
                 </FormGroup>
             </Navbar.Form>
               <span>
@@ -62,7 +73,7 @@ class Login extends React.Component {
       )
     } else {
       return (
-        <Navbar fixedTop>
+        <Navbar fixedTop style={styles.navbar}>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="">GRUBHUB</a>

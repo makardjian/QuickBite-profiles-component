@@ -53,7 +53,10 @@ class LoginModal extends React.Component {
       loginButton: {
         'height': '40',
         'backgroundColor': 'red',
-        'color': 'white'
+        'color': 'white',
+        'paddingLeft': '10px',
+        'paddingRight': '10px',
+        'border': '2px solid white',
       }
 
     }

@@ -15,7 +15,6 @@ app.get('/restaurants/:id', (req, res) => {
 });
 
 app.get('/restaurants/:id/profile', (req, res) => {
-  console.log(req.params);
   db.grabRestaurantInfo(req.params.id, (restaurant) => {
     res.json(restaurant);
   });

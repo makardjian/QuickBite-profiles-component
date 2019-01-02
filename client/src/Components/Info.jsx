@@ -22,17 +22,7 @@ class Info extends React.Component {
       });
   }
 
-  getStars(stars) {
-    let starsArray = ['☆','☆','☆','☆','☆'];
-    let full = '★';
-    for(let i = 0; i < stars; i++) {
-      starsArray[i] = full;
-    }
-    return starsArray;
-  }
-
   render() {
-    const stars = this.getStars(this.state.restaurant.stars);
     const quality = this.state.restaurant.quality;
     const delivery = this.state.restaurant.delivery;
     const accuracy = this.state.restaurant.accuracy;

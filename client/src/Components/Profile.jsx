@@ -1,5 +1,6 @@
 import React from 'react';
 import Info from './Info.jsx';
+import ProfileButtons from './ProfileButtons.jsx'
 import { ButtonToolbar } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -8,6 +9,9 @@ import { Button } from 'react-bootstrap';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      highlight: false,
+    }
     
   }
 
@@ -20,21 +24,12 @@ class Profile extends React.Component {
         'backgroundColor': 'blue',
         'position': 'relative'
       },
-
-      profileButtons: {
-        'float': 'right',
-        'borderRadius': '50%'
-      }
+      
     }
 
     return( 
       <div style={styles.profile}>
-        <ButtonToolbar style={{'paddingRight': '55'}}>
-            <Button style={styles.profileButtons}>S</Button>
-            <Button style={styles.profileButtons}>
-              <span className='glyphicon glyphicon-bookmark'></span>
-            </Button>
-        </ButtonToolbar>
+        <ProfileButtons />
         <Info restaurant={this.props.restaurant}/>
       </div>
     )
