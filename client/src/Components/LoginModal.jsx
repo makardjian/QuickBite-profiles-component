@@ -45,7 +45,6 @@ class LoginModal extends React.Component {
   }
 
   handleButtonSubmit() {
-    console.log(this);
     this.props.handleSubmit(this.state.username);
   }
 
@@ -67,8 +66,6 @@ class LoginModal extends React.Component {
                 <ToggleButton value='check' type='checkbox'> Keep me signed in</ToggleButton>
                 <a href='#'>Reset password</a>
               </span>
-            
-             
               <ButtonGroup vertical block>
                <br></br><Button onClick={this.handleButtonSubmit}>Sign in</Button><br></br>
                 <p>or</p>
