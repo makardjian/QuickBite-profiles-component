@@ -29,7 +29,7 @@ class Stars extends React.Component {
   render() {
     const stars = this.getStars(this.props.stars);
     const popOverBottom = (
-      <Popover id='popover-bottom' title="Here's what people are saying:">
+      <Popover id='popover-bottom' title="Here's what people are saying:" style={styles.popover}>
         <Table>
             <tr>
               <td>

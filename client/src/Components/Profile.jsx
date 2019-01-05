@@ -1,34 +1,51 @@
 import React from 'react';
 import Info from './Info.jsx';
 import ProfileButtons from './ProfileButtons.jsx'
+import axios from 'axios';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       highlight: false,
+      restaurant: {}
     }
     
+  }
+
+  componentDidMount() {
+    const id = window.location.pathname.substring(13);
+    axios.get(`/restaurants/${id}/profile`)
+      .then((response) => {
+        this.setState({
+          restaurant: response.data[0],
+        });
+      });
   }
 
   render() {
     const styles = {
       profile: {
         'paddingTop': '15px',
-        'width': '75%',
+        'width': '100%',
         'height': '57%',
         'position': 'absolute',
+        'marginTop': '-20px',
         'backgroundColor': 'rgba(248, 247, 216, 0.7)',
         'backgroundRepeat': 'no-repeat',
-        'backgroundImage': `url(${this.props.restaurant.picture})`,
+        'backgroundImage': `url(${this.state.restaurant.picture})`,
         'backgroundSize': '100%',
       },
     }
     
     return( 
       <div style={styles.profile}>
-        <ProfileButtons name={this.props.restaurant.name}/>
-        <Info restaurant={this.props.restaurant}/>
+        <div style={{width: '100%', height:'170px', overflow:'hidden', marginTop: '60px'}}>
+          <img src={this.state.restaurant.picture} style={{width: '100%'}}></img>
+        </div>
+        
+        <ProfileButtons name={this.state.restaurant.name}/>
+        <Info restaurant={this.state.restaurant}/>
         
       </div>
     )

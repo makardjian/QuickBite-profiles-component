@@ -15,11 +15,11 @@ class ProfileButtons extends React.Component {
   render() {
     return (
       <div>
-        <ButtonToolbar style={{'paddingRight': '55px'}}>
+        <div style={{'paddingRight': '55px', 'zIndex': '2'}}>
                 <ShareButton name={this.props.name}/>
                 <BookmarkButton />
-        </ButtonToolbar>
-        <ProfilePic />
+        </div>
+        {/* <ProfilePic /> */}
       </div>
     )
   }
@@ -30,13 +30,16 @@ class ProfilePic extends React.Component {
     const styles = {
       profilePic: {
         'float': 'right',
-        'marginTop': '200px'
+        'marginTop': '70px',
+        'height': '80px',
+        'width': '80px',
+        'zIndex': '3'
       }
     }
 
     return (
-      <div style={styles.profilePic}>
-        <Button>Hello</Button>
+      <div>
+        <button style={styles.profilePic}>Hello</button>
       </div>
     )
   }
@@ -82,20 +85,15 @@ class ShareButton extends React.Component {
     constructor(props) {
       super(props);
   
-      this.handleShow = this.handleShow.bind(this);
-      this.handleClose = this.handleClose.bind(this);
+      this.toggle = this.toggle.bind(this);
   
       this.state = {
         show: false
       };
     }
   
-    handleClose() {
-      this.setState({ show: false });
-    }
-  
-    handleShow() {
-      this.setState({ show: true });
+    toggle() {
+      this.setState({ show: !this.state.show });
     }
   
     render() {
@@ -110,9 +108,12 @@ class ShareButton extends React.Component {
       }
       return (
         <span>
-          <Button style={styles.profileButtons} onClick={this.handleShow}>S</Button>
-          <Modal show={this.state.show} onHide={this.handleClose}>
-          <Button onClick={this.handleClose}>X</Button>
+          <Button style={styles.profileButtons} onClick={this.toggle}>S</Button>
+          {this.state.show ? <Modal toggle={this.toggle}/> : null}
+          
+          
+          <Modal show={this.state.show} onHide={this.toggle}>
+          <Button onClick={this.toggle}>X</Button>
             <Modal.Body>
               <h3>Share {this.props.name}</h3>
               <div style={styles.socialMedia}>

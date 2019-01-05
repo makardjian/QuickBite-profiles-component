@@ -13,7 +13,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ''
+      username: '',
+      show: false
     };
     
   }
@@ -22,58 +23,34 @@ class Login extends React.Component {
     this.setState({ 
       username: username
     })
-    console.log(this.state)
+  }
+
+  handleShow() {
+    this.setState({
+      show: !this.state.show
+    })
   }
 
   render() {
-    if(this.state.username === '') {
-      console.log(styles.placeholder)
       return (
-        <div>
-        <Navbar fixedTop style={styles.navbar}>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href='#' style={styles.home}>GRUBHUB</a>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav>
+        <div style={styles.navbar}>
+          <span>
+            <button style={styles.grubhubLogo}>GRUBHUB</button>
+          </span>
+          <span>
             <DropDownButton />
+          </span>
+          <span>
             <input style={styles.placeholder} type="text" placeholder="Pizza, sushi, chinese"/>
-          </Nav>
-          <view>
-          <LoginModal handleSubmit={this.handleSubmit.bind(this)} />  
-          </view>
-        </Navbar>
+          </span>
+          <span>
+            <button style={styles.loginButton} onClick={this.handleShow.bind(this)}>
+              Log in
+            </button>
+            {this.state.show ? <LoginModal toggle={this.toggle} show={this.state.show}/> : null}
+          </span>
         </div>
       )
-    } else {
-      return (
-        <Navbar fixedTop style={styles.navbar}>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="">GRUBHUB</a>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav>
-            <NavDropdown eventKey={1} title="Enter an address" id="address">
-              <Navbar.Form pullLeft>
-                <FormGroup>
-                  <FormControl type="text" placeholder="Enter a new address"/>
-                </FormGroup>
-              </Navbar.Form>
-            </NavDropdown>
-            <Navbar.Form pullLeft>
-                <FormGroup>
-                  <FormControl type="text" placeholder="Pizza, sushi, chinese"/>
-                </FormGroup>
-            </Navbar.Form>  
-            <NavItem eventKey={1} href="#">
-              {this.state.username}
-            </NavItem>
-          </Nav>
-        </Navbar>
-      )
-    }
   }
 }
 

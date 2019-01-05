@@ -1,45 +1,43 @@
 import React from 'react';
+import styles from './../styles/DropDownButton.css.js'
 
 class DropDownButton extends React.Component {
   constructor() {
     super();
-    
     this.state = {
-      showMenu: false,
+      showAddress: false,
     }
-    
-    this.showMenu = this.showMenu.bind(this);
+    this.showAddress = this.showAddress.bind(this);
   }
   
-  showMenu(event) {
+  showAddress(event) {
     event.preventDefault();
     
     this.setState({
-      showMenu: true,
+      showAddress: !this.state.showAddress,
     });
   }
 
   render() {
+    const searchImg = <img src="https://img.icons8.com/ios/50/000000/marker.png" />
     return (
-      <div>
-        <button onClick={this.showMenu}>
-          Show menu
+      <span style={styles.dropDownSpan}>
+        <button onClick={this.showAddress} style={styles.dropDownButton}>
+          Enter an address 
         </button>
         
         {
-          this.state.showMenu
+          this.state.showAddress
             ? (
-              <div className="menu">
-                <button> Menu item 1 </button>
-                <button> Menu item 2 </button>
-                <button> Menu item 3 </button>
+              <div className="menu" style={styles.address}>
+                <input type='text' placeholder='Enter a new address' style={styles.inputForm}/>
               </div>
             )
             : (
               null
             )
         }
-      </div>
+      </span>
     );
   }
 }

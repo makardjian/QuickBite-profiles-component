@@ -18,7 +18,7 @@ class LoginModal extends React.Component {
     this.handleButtonSubmit = this.handleButtonSubmit.bind(this);
     console.log('PROPS', this.props)
     this.state = {
-      show: false,
+      show: true,
       username: '',
       password: '',
     };
@@ -50,11 +50,8 @@ class LoginModal extends React.Component {
 
   render() {
     return (
-      <span style={{'lineHeight': '40px'}}>
-        <button style={styles.loginButton} onClick={this.handleShow} >
-          Sign in
-        </button>
-        <Modal show={this.state.show} onHide={this.handleClose} animation>
+      <span>
+        <Modal show={this.state.show} onHide={this.handleClose} animation style={styles.loginModal}>
           <Button onClick={this.handleClose}>X</Button>
           <Modal.Body>
             <h3>Sign in with your Grubhub account</h3>
@@ -80,4 +77,22 @@ class LoginModal extends React.Component {
   }
 }
 
+
+// class Modal extends React.Component {
+// //   constructor(props) {
+// //     super(props);
+// //   }
+// //   render() {
+// //     console.log('hello')
+// //     return (
+// //       <div>
+// //         <h1> Hello </h1>
+// //       </div>
+// //     )
+// //   }
+// // }
+// }
+  
+
+  
 export default LoginModal;

@@ -25,8 +25,8 @@ class Info extends React.Component {
           <div style={styles.info}>
             <h2>{this.props.restaurant.name}</h2>
             <span>
-              <Button style={styles.button}>{this.props.restaurant.address}</Button>
-              <Button style={styles.button}>{this.props.restaurant.number}</Button>
+              <button style={styles.button}>{this.props.restaurant.address}</button>
+              <button style={styles.button}>{this.props.restaurant.number}</button>
             </span>
             <div>
               <span style={styles.ratings}> <Stars quality={quality} delivery={delivery} accuracy={accuracy} stars={this.props.restaurant.stars}/> </span>

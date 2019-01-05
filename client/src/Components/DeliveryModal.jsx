@@ -24,8 +24,10 @@ export class DeliveryModal extends React.Component {
         <div>
           <p><strong>When would you like your order?</strong></p>
           <a href='#'>ASAP (60-70 minutes)</a>
-          <FormControl value={this.state.userAddress} type="text" 
-          placeholder="Enter address" onChange={this.handleChange}></FormControl>
+          <div>
+            <FormControl value={this.state.userAddress} type="text" 
+            placeholder="Enter address" onChange={this.handleChange}></FormControl>
+          </div>
         </div>
       </div>
     )

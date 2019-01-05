@@ -1,7 +1,8 @@
 export default {
   profileButtons: {
     'float': 'right',
-    'borderRadius': '50%'
+    'borderRadius': '50%',
+    'zIndex': '2',
   },
   highlighted: {
     'float': 'right',

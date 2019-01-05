@@ -40,12 +40,12 @@ class Delivery extends React.Component {
   render() {
       return (
         <span className="modal-container">
-          <Button 
+          <button 
             onClick={() => this.setState({ show: true })}
             style={styles.deliveryButton}
           >
             {this.state.delivery ? <DeliveryInfo /> : <PickupInfo />}
-          </Button>
+          </button>
         <span>
           <a href='#'>Change</a>
         </span>
