@@ -11,8 +11,9 @@
     "fill-db": "node database/seeds.js",
     "start": "nodemon server/index.js",
     "db": "mysql -u root -p < schema.sql",
-    "seed": "node seeds.js",
-    "react-dev": "webpack -d --watch"
+    "seed": "node ./database/seeds.js",
+    "react-dev": "webpack -d --watch",
+    "dockerise": "node ./database/seeds.js & node ./server/index.js"
   },
   "dependencies": {
     "acorn": "^6.0.4",
