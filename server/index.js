@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const path = require('path');
 
 app.use(bodyParser.json());
@@ -15,7 +15,6 @@ app.get('/restaurants/:id', (req, res) => {
 });
 
 app.get('/restaurants/:id/profile', (req, res) => {
-  console.log(req.params);
   db.grabRestaurantInfo(req.params.id, (restaurant) => {
     res.json(restaurant);
   });

@@ -1,6 +1,8 @@
 import React from 'react';
-import { get } from 'http';
 import axios from 'axios';
+import Login from './Login.jsx';
+import Profile from './Profile.jsx';
+import Delivery from './Delivery.jsx';
 
 class Header extends React.Component {
   constructor(props) {
@@ -15,28 +17,20 @@ class Header extends React.Component {
     const id = window.location.pathname.substring(13);
     axios.get(`/restaurants/${id}/profile`)
       .then((response) => {
-        console.log(response.data[0]);
         this.setState({
           restaurant: response.data[0],
         });
-        console.log('RESTAURANT', this.state.restaurant);
       });
-    // .catch((error) => {
-    //   console.log(error);
-    // })
-   
   }
 
   render() {
     return (
       <div>
-        <div>Hello World!</div>
-        <div>Name = {this.state.restaurant.name}</div>
-        <div>Address = {this.state.restaurant.address}</div>
-        <div>Accurate = {this.state.restaurant.accuracy}</div>
-        <div>Quality = {this.state.restaurant.quality}</div>
-        <div>Stars = {this.state.restaurant.stars}</div>
-        <div>{this.state.restaurant.picture}</div>
+          <Login />
+          <div style={{'position': 'relative'}}>
+            <Profile restaurant={this.state.restaurant} />
+          </div>
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
       </div>
     );
   }
