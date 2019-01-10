@@ -11,9 +11,11 @@
     "fill-db": "node database/seeds.js",
     "start": "nodemon server/index.js",
     "db": "mysql -u root -p < schema.sql",
-    "seed": "node ./database/seeds.js",
+    "seeds": "node ./database/seed.js",
     "react-dev": "webpack -d --watch",
-    "dockerise": "node ./database/seeds.js & node ./server/index.js"
+    "dockerise": "node ./database/seeds.js & node ./server/index.js",
+    "restaurant-gen": "node database/SDC-seed-restaurants.js",
+    "users-gen": "node database/SDC-seed-users.js"
   },
   "dependencies": {
     "acorn": "^6.0.4",
