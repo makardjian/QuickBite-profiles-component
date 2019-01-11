@@ -23,12 +23,5 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 
-<<<<<<< HEAD
 database/*csvs
 database/Liam_Archive
-=======
-database/restaurant_table_csvs/
-database/users_table_csvs/
-database/Liam_Archive
-database/mongo_csvs
->>>>>>> 3dc33e91f40dfa60e381458bcdcf79dbb6b2c875
