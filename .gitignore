@@ -26,3 +26,5 @@ dist/
 
 database/restaurant_table_csvs/
 database/users_table_csvs/
+database/Liam_Archive
+database/mongo_csvs
