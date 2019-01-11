@@ -11,9 +11,12 @@
     "fill-db": "node database/seeds.js",
     "start": "nodemon server/index.js",
     "db": "mysql -u root -p < schema.sql",
-    "seed": "node ./database/seeds.js",
+    "seeds": "node ./database/seed.js",
     "react-dev": "webpack -d --watch",
-    "dockerise": "node ./database/seeds.js & node ./server/index.js"
+    "dockerise": "node ./database/seeds.js & node ./server/index.js",
+    "postgres-generate-csvs": "node database/Postgres-seeding-script.js",
+    "users-gen": "node database/SDC-seed-users.js",
+    "mongo-generate-csvs": "node database/Mongo-seeding-script.js"
   },
   "dependencies": {
     "acorn": "^6.0.4",
@@ -23,6 +26,7 @@
     "bootstrap": "^4.2.1",
     "express": "^4.15.4",
     "jquery": "^3.3.1",
+    "mongoose": "^5.4.3",
     "mysql": "^2.14.1",
     "react": "^15.6.1",
     "react-bootstrap": "^0.32.4",
