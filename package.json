@@ -14,9 +14,9 @@
     "seeds": "node ./database/seed.js",
     "react-dev": "webpack -d --watch",
     "dockerise": "node ./database/seeds.js & node ./server/index.js",
-    "restaurant-gen": "node database/SDC-seed-restaurants.js",
+    "postgres-generate-csvs": "node database/Postgres-seeding-script.js",
     "users-gen": "node database/SDC-seed-users.js",
-    "mongo-generate-csv": "node database/Mongo-seed-Script.js"
+    "mongo-generate-csvs": "node database/Mongo-seeding-script.js"
   },
   "dependencies": {
     "acorn": "^6.0.4",

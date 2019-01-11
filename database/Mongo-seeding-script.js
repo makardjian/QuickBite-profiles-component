@@ -42,6 +42,7 @@ restaurantDataGen();
 
 //seed rest2.csv
 filePath = 'database/mongo_csvs/mongoRest2.csv';
+fs.appendFileSync(filePath, header);
 restaurantDataGen();
 restaurantDataGen();
 restaurantDataGen();
@@ -49,6 +50,7 @@ restaurantDataGen();
 
 //seed rest3.csv
 filePath = 'database/mongo_csvs/mongoRest3.csv';
+fs.appendFileSync(filePath, header);
 restaurantDataGen();
 restaurantDataGen();
 restaurantDataGen();
@@ -56,6 +58,7 @@ restaurantDataGen();
 
 //seed rest4.csv
 filePath = 'database/mongo_csvs/mongoRest4.csv';
+fs.appendFileSync(filePath, header);
 restaurantDataGen();
 restaurantDataGen();
 restaurantDataGen();
@@ -63,6 +66,7 @@ restaurantDataGen();
 
 //seed rest5.csv
 filePath = 'database/mongo_csvs/mongoRest5.csv';
+fs.appendFileSync(filePath, header);
 restaurantDataGen();
 restaurantDataGen();
 restaurantDataGen();
