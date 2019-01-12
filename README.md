@@ -46,7 +46,6 @@ app.post('/restaurants', db.postRestaurant)
 
 ```
 const postRestaurant = (req, res) => {
-  console.log('hello world');
   //QUERY the database to find the next id to add to the newly posted restaurant
   const newRestaurant = req.body;
   Restaurant.find().sort({id: -1}).limit(1)
@@ -54,9 +53,7 @@ const postRestaurant = (req, res) => {
       newRestaurant.id = lastRecord.id++;
       const postObject = new Restaurant(newRestaurant);
       //Save the restaurant to the database
-      console.log(postObject);
       return postObject.save();
-      //  MALCOM SAYS THEN WILL RUN. Check this after you re-seed your data.
     })
     .then(() => {
       res.send('Your record was saved to the database!');
@@ -74,7 +71,6 @@ app.get('/restaurants/:id', db.getRestaurant)
 
 ```
 const getRestaurant = (req, res) => {
-  console.log(req.body);
   Restaurant.find({id: req.params.id})
     .then((targetRestaurant)=> {
       res.send(targetRestaurant);
