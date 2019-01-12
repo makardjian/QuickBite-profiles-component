@@ -25,3 +25,4 @@ build/
 
 database/*csvs
 database/Liam_Archive
+database/*tsvs

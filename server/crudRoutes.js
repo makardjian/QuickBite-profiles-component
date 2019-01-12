@@ -9,14 +9,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static((__dirname + '/../client/dist')));
 
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
+});
+
+
 //  CREATE
 app.post('/restaurants', db.postRestaurant);
 
-//  Read
+//  READ
 app.get('/restaurants/:id', db.getRestaurant);
 
-//  Update
+//  UPDATE
 app.put('/restaurants/:id', db.updateRestaurant);
 
-//  Delete
+//  DELETE
 app.delete('/restaurants/:id', db.deleteRestaurant);
+
+
+
