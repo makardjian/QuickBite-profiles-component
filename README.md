@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/sdc-group-6/psmorimoto-reviews-service
+  - https://github.com/sdc-group-6/klarok-menu-service
+  - https://github.com/sdc-group-6/ngodavidhuy-recommendations-service
 
 ## Table of Contents
 
@@ -17,7 +16,7 @@
 
 ## Usage
 
-> Some usage instructions
+This is one of the four services listed above. They all need to be run together in a proxy server.
 
 ## Requirements
 
@@ -46,11 +45,11 @@ app.post('/restaurants', db.postRestaurant)
 
 ```
 const postRestaurant = (req, res) => {
-  //QUERY the database to find the next id to add to the newly posted restaurant
   const newRestaurant = req.body;
+  //QUERY the database to find the next id to add to the newly posted restaurant
   Restaurant.find().sort({id: -1}).limit(1)
     .then(lastRecord => {
-      newRestaurant.id = lastRecord.id++;
+      newRestaurant.id = ++lastRecord[0].id;
       const postObject = new Restaurant(newRestaurant);
       //Save the restaurant to the database
       return postObject.save();
@@ -59,7 +58,7 @@ const postRestaurant = (req, res) => {
       res.send('Your record was saved to the database!');
     })
     .catch(err => {
-      res.statusCode(500).send('Unable to save your record to the database');
+      res.send(err);
     });
 };
 ```
@@ -73,11 +72,16 @@ app.get('/restaurants/:id', db.getRestaurant)
 const getRestaurant = (req, res) => {
   Restaurant.find({id: req.params.id})
     .then((targetRestaurant)=> {
-      res.send(targetRestaurant);
+      if (targetRestaurant.length) {
+        res.send(targetRestaurant);
+      } else {
+        res.status(404).send('There is no restaurant with that id');
+      }
     })
     .catch(() => {
-      res.statusCode(500).send('Sorry, there is no restaurant with that id.');
-    }
+      res.status(500).send('There was a problem querying the database.');
+    });
+};
 ```
 
 
@@ -93,7 +97,7 @@ const updateRestaurant = (req, res) => {
       res.send('Restaurant has been updated in the database.');
     })
     .catch(() => {
-      res.statusCode(500).send('Restaurant could not be found in the database');
+      res.status(500).send('Restaurant could not be found in the database');
     });
 };
 ```
@@ -109,7 +113,7 @@ const deleteRestaurant = (req, res) => {
       res.send('delted the restaurant from the database.');
     })
     .catch(() => {
-      res.statusCode(500).send('there was an issue deleting your file from the database.');
+      res.status(500).send('there was an issue deleting your file from the database.');
     });
 };
 ```

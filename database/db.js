@@ -3,6 +3,7 @@ mongoose.connect('mongodb://localhost/sdc_project', { useNewUrlParser: true });
 
 let restaurantSchema = mongoose.Schema({
   unique_name: String,
+  id: Number,
   name: String,
   address: String, 
   number: String,
@@ -13,40 +14,40 @@ let restaurantSchema = mongoose.Schema({
   accuracy: Number
 });
 
-let Restaurant = mongoose.model('Restaurants1', restaurantSchema);
+let Restaurant = mongoose.model('restaurants1', restaurantSchema);
 
 //  CREATE 
 const postRestaurant = (req, res) => {
-  console.log('hello world');
-  //QUERY the database to find the next id to add to the newly posted restaurant
   const newRestaurant = req.body;
+  //QUERY the database to find the next id to add to the newly posted restaurant
   Restaurant.find().sort({id: -1}).limit(1)
     .then(lastRecord => {
-      newRestaurant.id = lastRecord.id++;
+      newRestaurant.id = ++lastRecord[0].id;
       const postObject = new Restaurant(newRestaurant);
       //Save the restaurant to the database
-      console.log(postObject);
       return postObject.save();
-      //  MALCOM SAYS THEN WILL RUN. Check this after you re-seed your data.
     })
     .then(() => {
       res.send('Your record was saved to the database!');
     })
     .catch(err => {
-      res.statusCode(500).send('Unable to save your record to the database');
+      res.send(err);
     });
 };
 
 
 //  READ
 const getRestaurant = (req, res) => {
-  console.log(req.body);
   Restaurant.find({id: req.params.id})
     .then((targetRestaurant)=> {
-      res.send(targetRestaurant);
+      if (targetRestaurant.length) {
+        res.send(targetRestaurant);
+      } else {
+        res.status(404).send('There is no restaurant with that id');
+      }
     })
     .catch(() => {
-      res.statusCode(500).send('Sorry, there is no restaurant with that id.');
+      res.status(500).send('There was a problem querying the database.');
     });
 };
 
@@ -57,7 +58,7 @@ const updateRestaurant = (req, res) => {
       res.send('Restaurant has been updated in the database.');
     })
     .catch(() => {
-      res.statusCode(500).send('Restaurant could not be found in the database');
+      res.status(500).send('Restaurant could not be found in the database');
     });
 };
 
@@ -68,7 +69,7 @@ const deleteRestaurant = (req, res) => {
       res.send('delted the restaurant from the database.');
     })
     .catch(() => {
-      res.statusCode(500).send('there was an issue deleting your file from the database.');
+      res.status(500).send('there was an issue deleting your file from the database.');
     });
 };
 
@@ -81,5 +82,3 @@ module.exports = {
   deleteRestaurant
 };
 
-//Notes:
-  //Right now the post request is not adding the next id like I would expect.
