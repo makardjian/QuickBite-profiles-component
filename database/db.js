@@ -7,19 +7,27 @@ let restaurantSchema = mongoose.Schema({
   address: String, 
   number: String,
   picture: String,
-  stars: String,
-  quality: String,
-  delivery: String,
-  accuracy: String
-})
-unique_name	name	address	number	picture	stars	quality	delivery	accuracy
+  stars: Number,
+  quality: Number,
+  delivery: Number,
+  accuracy: Number
+});
 
-//  CREATE
+let Restaurant = mongoose.model('Restaurant', restaurantSchema);
+
+//  CREATE 
 const postRestaurant = (req, res) => {
-  const postObject = new 
-  const postObject = req.body;
-  postObject.save()
-    .then(record => {
+  //QUERY the database to find the next id to add to the newly posted restaurant
+  const newRestaurant = req.body;
+  Restaurant.find({id: -1}).limit(1)
+    .then(lastRecord => {
+      newRestaurant.id = ++lastRecord.id;
+      const postObject = new Restaurant(newRestaurant);
+      //Save the restaurant to the database
+      return postObject.save();
+      //  MALCOM SAYS THEN WILL RUN. Check this after you re-seed your data.
+    })
+    .then(() => {
       res.send('Your record was saved to the database!');
     })
     .catch(err => {
@@ -30,11 +38,30 @@ const postRestaurant = (req, res) => {
 
 //  READ
 const getRestaurant = (req, res) => {
-  
-}
+  Restaurant.find({id: req.params.id})
+    .then((targetRestaurant)=> {
+      res.send(targetRestaurant);
+    })
+    .catch(() => {
+      res.statusCode(500).send('Sorry, there is no restaurant with that id.')
+    });
+};
+
+const updateRestaurant = (req, res) => {
+  const freshData = req.body;
+  Restaurant.findOneAndUpdate({id: req.params.id}, freshData)
+    .then(() => {
+      res.send('Restaurant has been updated in the database.');
+    })
+    .catch(() => {
+      res.statusCode(500).send('Restaurant could not be found in the database');
+    });
+};
+
 
 
 module.exports = {
   postRestaurant,
-  getRestaurant
+  getRestaurant,
+  updateRestaurant
 };
