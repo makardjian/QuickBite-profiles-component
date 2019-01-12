@@ -3,7 +3,7 @@ mongoose.connect('mongodb://localhost/sdc_project', { useNewUrlParser: true });
 
 let restaurantSchema = mongoose.Schema({
   unique_name: String,
-  id: Number,
+  id: {type: Number, index: true},
   name: String,
   address: String, 
   number: String,
@@ -14,7 +14,7 @@ let restaurantSchema = mongoose.Schema({
   accuracy: Number
 });
 
-let Restaurant = mongoose.model('restaurants1', restaurantSchema);
+let Restaurant = mongoose.model('restaurants', restaurantSchema);
 
 //  CREATE 
 const postRestaurant = (req, res) => {
