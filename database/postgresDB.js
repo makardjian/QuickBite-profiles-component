@@ -47,7 +47,6 @@ const getRestaurant = (req, res) => {
 };
 
 //  UPDATE
-
 const updateRestaurant = (req, res) => {
   const newData = req.body;
   const text1 = `UPDATE restaurants SET name = $2, address = $3, number = $4, picture = $5, stars = $6, 
@@ -61,9 +60,19 @@ const updateRestaurant = (req, res) => {
     });
 };
 
+//  Delete
+const deleteRestaurant = (req, res) => {
+  const text = 'DELETE FROM restaurants WHERE id $1';
+  const values = [req.params.id];
+  client.query(text, values)
+    .then(res.send('your record has been deleted from the database.'))
+    .catch(console.error(e.stack));
+};
+
 
 module.exports = {
   postRestaurant,
   getRestaurant,
   updateRestaurant,
+  deleteRestaurant,
 };

@@ -23,4 +23,4 @@ app.get('/restaurants/:id', db.getRestaurant);
 app.put('/restaurants/:id', db.updateRestaurant);
 
 //  DELETE
-// app.delete('/restaurants/:id', db.deleteRestaurant);
+app.delete('/restaurants/:id', db.deleteRestaurant);
