@@ -1,14 +1,29 @@
-//Figure out how to connect to PostGres DB
+const Client= require('pg').Client;
+const client = new Client({
+  user: 'Nemra',
+  host: 'localhost',
+  database: 'sdc_project',
+  password: '',
+  port: 5432,
+});
 
+client.connect((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('connected to postgres db');
+  }
+});
 
 //  CREATE 
 const postRestaurant = (req, res) => {
   const newRestaurant = req.body;
-  const postQuery = 'INSERT INTO restaurants (name, address, number, picture, stars, quality, delivery, accuracy)' +
-  `VALUES (${newRestaurant.name}, ${newRestaurant.address}, ${newRestaurant.number}, ${newRestaurant.picture}, ${newRestaurant.stars}
-    ${newRestaurant.quality}, ${newRestaurant.delivery}, ${newRestaurant.accuracy});`;
+  const text = `INSERT INTO restaurants(name, address, number, picture, stars, quality, delivery, accuracy)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`;
+  const values = [newRestaurant.name, newRestaurant.address, newRestaurant.number, newRestaurant.picture, newRestaurant.stars,
+    newRestaurant.quality, newRestaurant.delivery, newRestaurant.accuracy];
   //Save the restaurant to the database
-  db.query(postQuery, (err) => {
+  client.query(text, values, (err) => {
     if (err) {
       res.status(500).send();
     } else {
@@ -20,12 +35,35 @@ const postRestaurant = (req, res) => {
 
 //  READ
 const getRestaurant = (req, res) => {
-  const query = `SELECT * FROM restaurants WHERE ID = ${req.params.id}`;
-  db.query(query, (err, data) => {
+  const text = 'SELECT * FROM restaurants WHERE id = $1';
+  const values = [req.params.id];
+  client.query(text, values, (err, data) => {
     if (err) {
       res.status(500).send();
     } else {
-      res.status(200).send(data);
+      res.status(200).send(data.rows[0]);
     }
   });
+};
+
+//  UPDATE
+
+const updateRestaurant = (req, res) => {
+  const newData = req.body;
+  const text1 = `UPDATE restaurants SET name = $2, address = $3, number = $4, picture = $5, stars = $6, 
+    quality = $7, delivery = $8, accuracy = $9 WHERE id = $1`;
+  const values1 = [req.params.id, newData.name, newData.address, newData.number, newData.picture, newData.stars,
+    newData.quality, newData.delivery, newData.accuracy];
+  client.query(text1, values1)
+    .catch(e => console.error(e.stack))
+    .then( () => {
+      res.send('Updated your record in the restaurants database!');
+    });
+};
+
+
+module.exports = {
+  postRestaurant,
+  getRestaurant,
+  updateRestaurant,
 };
