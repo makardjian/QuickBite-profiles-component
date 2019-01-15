@@ -1,4 +1,4 @@
-const Client= require('pg').Client;
+const Client = require('pg').Client;
 const client = new Client({
   user: 'Nemra',
   host: 'localhost',
@@ -35,12 +35,16 @@ const postRestaurant = (req, res) => {
 
 //  READ
 const getRestaurant = (req, res) => {
+  console.log(req.params);
   const text = 'SELECT * FROM restaurants WHERE id = $1';
   const values = [req.params.id];
+  const before = Date.now();
   client.query(text, values, (err, data) => {
     if (err) {
       res.status(500).send();
     } else {
+      const after = Date.now();
+      console.log(after - before);
       res.status(200).send(data.rows[0]);
     }
   });
@@ -75,4 +79,5 @@ module.exports = {
   getRestaurant,
   updateRestaurant,
   deleteRestaurant,
+  client,
 };
