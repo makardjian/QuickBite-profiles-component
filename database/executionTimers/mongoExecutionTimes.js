@@ -1,4 +1,4 @@
-const db = require('./mongoDB.js');
+const db = require('../controllers/mongoDB.js');
 const now = require('performance-now');
 
 
