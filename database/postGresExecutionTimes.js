@@ -12,6 +12,7 @@ let sum = 0;
 
 generateRandomRecords();
 
+//  TEST SPEED FOR A GET REQUEST
 const testGet = (n) => {
   if (n === 1000) { 
     console.log((sum / n).toFixed(3), 'AVERAGE');
@@ -34,3 +35,7 @@ const testGet = (n) => {
 };
 
 testGet(0);
+
+
+// TEST SPEED FOR POST REQUEST
+

@@ -79,6 +79,7 @@ module.exports = {
   postRestaurant,
   getRestaurant,
   updateRestaurant,
-  deleteRestaurant
+  deleteRestaurant,
+  Restaurant,
 };
 
