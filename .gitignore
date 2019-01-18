@@ -26,3 +26,4 @@ build/
 database/*csvs
 database/Liam_Archive
 database/*tsvs
+client/dist/bundle.js

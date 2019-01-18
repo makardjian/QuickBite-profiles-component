@@ -1,5 +1,6 @@
+require('newrelic');
 const express = require('express');
-const db = require('../database/postgresDB.js');
+const db = require('../database/controllers/postgresDB.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -9,8 +10,10 @@ const PORT = 3002;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
-app.use(express.static((__dirname + '/../client/dist')));
+app.use(cors()); 
+
+app.use(express.static((__dirname + '/../client/dist/')));
+app.use('/:restaurantId', express.static(__dirname + './../client/dist/'));
 
 app.listen(PORT, () => {
   console.log( `listening on port ${PORT}`);

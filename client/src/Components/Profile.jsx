@@ -14,11 +14,14 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    const id = window.location.pathname.substring(13);
-    axios.get(`/restaurants/${id}/profile`)
+    let id = window.location.pathname.split('/')[1]
+    if (!id) {
+      id = 100;
+    }
+    axios.get(`/restaurants/${id}`)
       .then((response) => {
         this.setState({
-          restaurant: response.data[0],
+          restaurant: response.data,
         });
       });
   }
