@@ -1,6 +1,5 @@
 import React from 'react';
 import Stars from './Stars.jsx';
-import axios from 'axios';
 import NavigationButtons from './NavigationButtons.jsx';
 import Delivery from './Delivery.jsx';
 import { Button } from 'react-bootstrap';
