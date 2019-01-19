@@ -14,7 +14,8 @@
     "react-dev": "webpack -d --watch",
     "dockerise": "node ./database/seeds.js & node ./server/index.js",
     "postgres-generate-csvs": "node database/seeding_scripts/Postgres-seeding-script.js",
-    "mongo-generate-csvs": "node database/seeding_scripts/Mongo-seeding-script.js"
+    "mongo-generate-csvs": "node database/seeding_scripts/Mongo-seeding-script.js",
+    "k6": "k6 run k6.js"
   },
   "dependencies": {
     "acorn": "^6.0.4",
@@ -33,6 +34,7 @@
     "react": "^15.6.1",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^15.6.1",
+    "redis": "^2.8.0",
     "underscore": "^1.8.3",
     "webpack-cli": "^3.1.2"
   },
