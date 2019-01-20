@@ -14,11 +14,12 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    let id = window.location.pathname.split('/')[1]
+    let id = window.location.pathname.split('/')[2]
+    console.log(id, 'id')
     if (!id) {
       id = 100;
     }
-    axios.get(`/restaurants/${id}`)
+    axios.get(`/restaurants/${id}/profiles`)
       .then((response) => {
         this.setState({
           restaurant: response.data,
