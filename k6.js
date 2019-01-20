@@ -17,10 +17,8 @@ const generateId = () => {
   }
 };
 
-let id = generateId();
-
-
 export default function() {
+  let id = generateId();
   http.get(`http://localhost:3002/restaurants/${id}`);
   // sleep(0.05);
 }
