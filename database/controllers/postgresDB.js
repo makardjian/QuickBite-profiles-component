@@ -42,7 +42,7 @@ const getRestaurant = (req, res) => {
   redisClient.get(req.params.id, (err, result) => {
     if (result) {
       const resultJSON = JSON.parse(result);
-      // console.log('FROM REDIS:', result);
+      // console.log('FROM REDIS:');
       res.status(200).json(resultJSON);
     } else {
       client.query(text, values, (err, data) => {
@@ -50,7 +50,7 @@ const getRestaurant = (req, res) => {
           res.status(500).send();
         } else {
           data = data.rows[0];
-          // console.log('FROM POSTGRES:', data);
+          // console.log('FROM POSTGRES:');
           redisClient.set(data.id, JSON.stringify(data));
           res.status(200).send(data);
         }
@@ -58,6 +58,7 @@ const getRestaurant = (req, res) => {
     }
   });
 };
+
 
 //  UPDATE
 const updateRestaurant = (req, res) => {
