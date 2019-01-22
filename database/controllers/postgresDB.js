@@ -1,4 +1,6 @@
 const Client = require('pg').Client;
+const redisClient = require('../../redisDemo.js');
+
 const client = new Client({
   user: 'Nemra',
   host: 'localhost',
@@ -37,14 +39,26 @@ const postRestaurant = (req, res) => {
 const getRestaurant = (req, res) => {
   const text = 'SELECT * FROM restaurants WHERE id = $1';
   const values = [req.params.id];
-  client.query(text, values, (err, data) => {
-    if (err) {
-      res.status(500).send();
+  redisClient.get(req.params.id, (err, result) => {
+    if (result) {
+      const resultJSON = JSON.parse(result);
+      // console.log('FROM REDIS:');
+      res.status(200).json(resultJSON);
     } else {
-      res.status(200).send(data.rows[0]);
+      client.query(text, values, (err, data) => {
+        if (err) {
+          res.status(500).send();
+        } else {
+          data = data.rows[0];
+          // console.log('FROM POSTGRES:');
+          redisClient.set(data.id, JSON.stringify(data));
+          res.status(200).send(data);
+        }
+      });
     }
   });
 };
+
 
 //  UPDATE
 const updateRestaurant = (req, res) => {

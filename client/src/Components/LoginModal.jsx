@@ -45,6 +45,7 @@ class LoginModal extends React.Component {
   }
 
   handleButtonSubmit() {
+    console.log('handleSubmit', (this.state.username))
     this.props.handleSubmit(this.state.username);
   }
 

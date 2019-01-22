@@ -1,14 +1,24 @@
 import http from 'k6/http';
-import { sleep } from 'k6';
+// import { sleep } from 'k6';
 
 export let options = {
   vus: 100,
-  duration: '2m'
+  duration: '3m',
+  rps: 2000
 };
 
-let id = Math.floor((Math.random() * 10000000) + 1);
+
+const generateId = () => {
+  const num = Math.floor((Math.random() * 10) + 1);
+  if (num < 8 ) {
+    return Math.floor((Math.random() * 200) + 1);
+  } else {
+    return Math.floor((Math.random() * 9999800) + 200);
+  }
+};
 
 export default function() {
-  http.get(`http://localhost:3002/restaurants/${id}`);
-  sleep(0.05);
+  let id = generateId();
+  http.get(`http://localhost:3002/restaurants/${id}/profiles`);
+  // sleep(0.05);
 }

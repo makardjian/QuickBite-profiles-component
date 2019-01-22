@@ -12,9 +12,3 @@ CREATE TABLE restaurants (
   delivery int NOT NULL,
   accuracy int NOT NULL
 );
-
-CREATE TABLE users (
-  id bigserial PRIMARY KEY,
-  name varchar(255) NOT NULL,
-  email varchar(255) NOT NULL
-);
