@@ -15,7 +15,6 @@ class Profile extends React.Component {
 
   componentDidMount() {
     let id = window.location.pathname.split('/')[2]
-    console.log(id, 'id')
     if (!id) {
       id = 100;
     }
