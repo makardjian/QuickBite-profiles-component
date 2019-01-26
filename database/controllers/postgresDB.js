@@ -2,11 +2,11 @@ const Client = require('pg').Client;
 const redisClient = require('../../redisDemo.js');
 
 const client = new Client({
-  user: 'Nemra',
-  host: 'localhost',
+  user: 'postgres',
+  host: 'ec2-18-222-125-183.us-east-2.compute.amazonaws.com',
   database: 'sdc_project',
-  password: '',
-  port: 5432,
+  password: '$grapes',
+  port: 5432
 });
 
 client.connect((err) => {
@@ -50,7 +50,7 @@ const getRestaurant = (req, res) => {
           res.status(500).send();
         } else {
           data = data.rows[0];
-          // console.log('FROM POSTGRES:');
+         // console.log('FROM POSTGRES:');
           redisClient.set(data.id, JSON.stringify(data));
           res.status(200).send(data);
         }
