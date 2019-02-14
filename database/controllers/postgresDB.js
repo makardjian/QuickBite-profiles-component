@@ -2,10 +2,10 @@ const Client = require('pg').Client;
 const redisClient = require('../../redisDemo.js');
 
 const client = new Client({
-  user: 'Nemra',
-  host: 'localhost',
+  user: 'postgres',
+  host: 'ec2-18-222-125-183.us-east-2.compute.amazonaws.com',
   database: 'sdc_project',
-  password: '',
+  password: '$grapes',
   port: 5432,
 });
 

@@ -24,6 +24,11 @@ app.listen(PORT, () => {
 //  CREATE
 app.post('/restaurants', db.postRestaurant);
 
+//Loader.io Config
+app.get('/loaderio-5bd1532cd10ade1b26d982b30368d3fb', (req, res) => {
+  res.send('loaderio-5bd1532cd10ade1b26d982b30368d3fb');
+});
+
 //  READ
 app.get('/restaurants/:id/profiles', db.getRestaurant);
 
