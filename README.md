@@ -1,6 +1,10 @@
 # Project Name
 
-> Project description
+- Redesigned the back-end architecture of a restaurant application microservice.
+- Conducted stress tests with k6.io and used New Relic to quantify and visualize data throughput and average latency.
+- Implemented a read-through Redis cache layer to reduce latency by 40% and increase throughput from 750 to 1,200 requests per second (RPS), while sending 70% of traffic to the top 200 restaurants (45% cache hit rate).
+- Deployed service to AWS and added an NGINX load balancer to spread the request load across four EC2 servers, leading to an additional 60% increase in throughput.
+- Achieved 1,946 RPS and an average latency 36ms.
 
 ## Related Projects
 
