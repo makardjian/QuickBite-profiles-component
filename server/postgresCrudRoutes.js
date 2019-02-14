@@ -25,16 +25,22 @@ app.listen(PORT, () => {
 app.post('/restaurants', db.postRestaurant);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //Loader.io Config
 app.get('/loaderio-5bd1532cd10ade1b26d982b30368d3fb', (req, res) => {
   res.send('loaderio-5bd1532cd10ade1b26d982b30368d3fb');
 });
 
 =======
+=======
+>>>>>>> 1868eb8c3c7b24db13b0d094ee597953c72a26ae
 //LoaderIO Configuration
 app.get('/loaderio-be274fa604ce42d77571a04d8116258a', (req, res) => {
  res.send('loaderio-be274fa604ce42d77571a04d8116258a')
 });
+<<<<<<< HEAD
+>>>>>>> 1868eb8c3c7b24db13b0d094ee597953c72a26ae
+=======
 >>>>>>> 1868eb8c3c7b24db13b0d094ee597953c72a26ae
 //  READ
 app.get('/restaurants/:id/profiles', db.getRestaurant);

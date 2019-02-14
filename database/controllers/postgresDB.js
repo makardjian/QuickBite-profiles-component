@@ -7,7 +7,11 @@ const client = new Client({
   database: 'sdc_project',
   password: '$grapes',
 <<<<<<< HEAD
+<<<<<<< HEAD
   port: 5432,
+=======
+  port: 5432
+>>>>>>> 1868eb8c3c7b24db13b0d094ee597953c72a26ae
 =======
   port: 5432
 >>>>>>> 1868eb8c3c7b24db13b0d094ee597953c72a26ae
