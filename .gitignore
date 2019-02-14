@@ -27,3 +27,7 @@ database/*csvs
 database/Liam_Archive
 database/*tsvs
 client/dist/bundle.js
+
+#From Ec2
+redis-stable.tar.gs
+redis-stable/

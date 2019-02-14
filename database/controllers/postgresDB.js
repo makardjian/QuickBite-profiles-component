@@ -6,7 +6,11 @@ const client = new Client({
   host: 'ec2-18-222-125-183.us-east-2.compute.amazonaws.com',
   database: 'sdc_project',
   password: '$grapes',
+<<<<<<< HEAD
   port: 5432,
+=======
+  port: 5432
+>>>>>>> 1868eb8c3c7b24db13b0d094ee597953c72a26ae
 });
 
 client.connect((err) => {
@@ -50,7 +54,7 @@ const getRestaurant = (req, res) => {
           res.status(500).send();
         } else {
           data = data.rows[0];
-          // console.log('FROM POSTGRES:');
+         // console.log('FROM POSTGRES:');
           redisClient.set(data.id, JSON.stringify(data));
           res.status(200).send(data);
         }
