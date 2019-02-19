@@ -1,6 +1,6 @@
 # Project Name
 
-  Quick Bites Profiles Microservice
+  Quick Bite profiles microservice
 
 ## Project Description
 
